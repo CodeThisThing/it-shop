@@ -23,9 +23,14 @@ class CreatePhonesTable extends Migration
             $table->string('camera_info');
             $table->string('memory_info');
             $table->string('material_info');
+            $table->bigInteger('id_category');
             $table->timestamps();
         });
+
+
+
     }
+
 
     /**
      * Reverse the migrations.

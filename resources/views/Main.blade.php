@@ -18,14 +18,19 @@
             <!-- Social shares button -->
 
             <!-- Title -->
+            <div class="d-inline-flex col-12 justify-content-between">
             <h4 class="card-title ">{{$phone->Name}}</h4>
-            <hr class="hr-light">
+            <i class="fas fa-angle-down" onclick="hover({{$phone->id}})"></i>
+            </div>
             <!-- Text -->
+               <div id="{{$phone->id}}"  class="phone-info" style="display: none">
+                   <hr class="hr-light">
                 <span><strong>Єкран:</strong> {{$phone->Screen_info}}</span><br>
                 <span><strong>Процесор:</strong> {{$phone->processor_info}}</span><br>
                 <span><strong>Память:</strong> {{$phone->memory_info}}</span><br>
                 <span><strong>Камера:</strong> {{$phone->camera_info}}</span><br>
                 <span><strong>Корпус:</strong> {{$phone->material_info}}</span>
+               </div>
                 <!-- Link -->
                 <hr class="hr-light ">
                 <h3><strong>Ціна:</strong> {{$phone->price}}</h3>
@@ -40,4 +45,13 @@
 @endforeach
 @endsection
 
+<script class="text/javascript">
+    function hover(elem_id){
+        var elem=document.getElementById(elem_id)
+        if(elem.style.display==='none'){
+            elem.style.display='block';
+        }else elem.style.display='none';
 
+    }
+
+</script>
