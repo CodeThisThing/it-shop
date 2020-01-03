@@ -14,51 +14,55 @@
     <title>Document</title>
 
 </head>
+<header>
+
+</header>
 <body>
 <div class="row wow fadeIn">
-    <div class="container mb-5">
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
-    <a class="navbar-brand" href="/"><strong>IT-shop</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Opinions</a>
-            </li>
-        </ul>
+    <div class="container col-12 mb-5">
+        <nav class="navbar  navbar-expand-lg navbar-dark pink scrolling-navbar">
+            <a class="navbar-brand" href="/"><strong>IT-shop</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Opinions</a>
+                    </li>
+                </ul>
 
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a class="nav-link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
-                @else
-                    <a class="nav-link" href="{{ route('login') }}">Вхід</a>
+                @if (Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a class="nav-link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        @else
+                            <a class="nav-link" href="{{ route('login') }}">Вхід</a>
 
-                    @if (Route::has('register'))
-                        <a class="nav-link" href="{{ route('register') }}">Регісрація</a>
-                    @endif
-                @endauth
+                            @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">Регісрація</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
             </div>
-        @endif
-    </div>
-</nav>
+        </nav>
     </div>
 </div>
+@yield('home_message')
 <div class="container">
     <div class="row ">
-        <div class="card-columns  d-flex-inline ">
+        <div class="card-columns  d-flex-inline position-relative ">
             @yield('content')
         </div>
     </div>

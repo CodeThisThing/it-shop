@@ -11,13 +11,16 @@
 |
 */
 
+use App\Http\Controllers\Samsung_phone;
 use App\Phone;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     $phones = Phone::all();
     return view('Main',compact('phones'));
 });
+Route::get('/Samsung_phone','Samsung_phone@index');
 
 Auth::routes();
 

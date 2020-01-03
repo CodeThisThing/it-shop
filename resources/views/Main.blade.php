@@ -8,7 +8,7 @@
 
     <!-- Card Dark -->
 
-        <div class="card mt-5 mr-3" >
+        <div class="card mt-5 mr-3 " >
         <!-- Card image -->
 
             <div class="card-image"> <img class="card-img-top mt-2" src="{{$phone->Image}}" alt=""></div>
@@ -20,7 +20,7 @@
             <!-- Title -->
             <div class="d-inline-flex col-12 justify-content-between">
             <h4 class="card-title ">{{$phone->Name}}</h4>
-            <i class="fas fa-angle-down" onclick="hover({{$phone->id}})"></i>
+            <i class="fas fa-angle-double-down" onclick="hover({{$phone->id}})"></i>
             </div>
             <!-- Text -->
                <div id="{{$phone->id}}"  class="phone-info" style="display: none">
