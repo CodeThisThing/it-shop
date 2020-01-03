@@ -62,7 +62,7 @@
 @yield('home_message')
 <div class="container">
     <div class="row ">
-        <div class="card-columns  d-flex-inline position-relative ">
+        <div class="card-columns  d-print-inline position-relative ">
             @yield('content')
         </div>
     </div>
