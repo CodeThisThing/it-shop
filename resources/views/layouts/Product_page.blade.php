@@ -5,19 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/Main.css">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="">
     <title>Document</title>
-
 </head>
-<header>
 
 
-</header>
+
 <body>
 <div class="row wow fadeIn ">
 
@@ -30,16 +25,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Apple<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Samsung</a>
+                    <a class="nav-link" href="#">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">OnePlus</a>
+                    <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Xiaomi</a>
+                    <a class="nav-link" href="#">Opinions</a>
                 </li>
             </ul>
             @if (Route::has('login'))
@@ -58,19 +53,12 @@
         </div>
     </nav>
 </div>
-@yield('home_message')
 
-    <div class="row justify-content-center ">
-        <div class="card-columns d-inline-block col-8 ">
-            @yield('content')
-        </div>
+<div class="container">
+    <div class="row">
+        @yield('About_phone')
     </div>
-
-
+</div>
 
 </body>
 </html>
-
-
-
-

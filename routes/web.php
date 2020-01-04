@@ -24,10 +24,9 @@ Route::get('/Samsung_phone','Samsung_phone@index');
 
 Auth::routes();
 
-Route::get('/phones/{phone_id}',function ($id){
-    $phone = Phone::find($id);
-    return view('phone,show',compact('phone'));
-});
+Route::get('/phones/{phone_id}','Product_controller@index');
+
+
 Route::get('/phones',function (){
     $phone = Phone::all();
 return view('phone,show',compact('phone'));
