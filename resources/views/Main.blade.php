@@ -1,14 +1,13 @@
-@extends('layouts.Navigation')
+
+
 @section('content')
-@foreach($phones  as $phone)
-
-
-
-
-
+    <div class="row justify-content-center ">
+        <div class="card-columns d-inline-block col-8 " >
+    @foreach($phones  as $phone)
     <!-- Card Dark -->
 
-        <div class="card mt-5 mr-3 " >
+
+        <div class="card mt-5 mr-3"   >
         <!-- Card image -->
 
             <div class="card-image"> <img class="card-img-top mt-2" src="{{$phone->Image}}" alt=""></div>
@@ -41,8 +40,11 @@
 
         </div>
 
+
     <!-- Card Dark -->
 @endforeach
+        </div>
+    </div>
 @endsection
 
 <script class="text/javascript">
@@ -55,3 +57,4 @@
     }
 
 </script>
+@extends('layouts.Navbar')
