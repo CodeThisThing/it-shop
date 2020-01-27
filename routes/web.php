@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Samsung_phone;
 use App\Phone;
 use Illuminate\Support\Facades\Route;
@@ -26,12 +27,13 @@ Auth::routes();
 
 //Route::get('/phones/{phone_id}','Product_controller@index');
 
-Route::get('/phones/{phone_id}','Product_controller@index');
+Route::get('/phones/{phone_category}/phone/{phone_id}','Product_controller@index');
 
-Route::get('/phones',function (){
-    $phone = Phone::all();
-return view('phone,show',compact('phone'));
-});
+Route::get('/phones/{phone_category}','CategoryController@index');
+
+
+Route::post('/phones/{phone_category}/phone/{phone_id}/AddOrder','Product_controller@AddProdToOrder');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('category','CategoryController');

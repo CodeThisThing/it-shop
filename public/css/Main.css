@@ -5,3 +5,8 @@ nav{
     background-color: #4e555b;
 }
 
+.phone-info{
+    background-color: red;
+    transition: display 3s;
+
+}

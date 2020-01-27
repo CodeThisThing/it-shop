@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Phone;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,9 +13,12 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($phone_category)
     {
-        //
+        $phones = Phone::all()->where('id_category',$phone_category);
+        return view('Main',compact('phones'));
+
+
     }
 
     /**
