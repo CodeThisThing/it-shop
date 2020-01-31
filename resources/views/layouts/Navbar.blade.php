@@ -8,9 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{asset('css/Main.css')}}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/Main.css')}}" type="text/css">
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="">
     <title>Document</title>
@@ -41,7 +42,19 @@
                     <a class="nav-link" href="#">Xiaomi</a>
                 </li>
             </ul>
-            <i class="fas fa-shopping-cart "  style="color: white;font-size: 23px" ></i>
+
+            <i id="orderList" class="fas fa-shopping-cart " style="color: white;font-size: 23px" ></i>
+
+            <div id="myModal" class="modal">
+                    <div class="row justify-content-center">
+                        <div class="modal-content col-6">
+                            <h3>Корзина</h3>
+                            <hr class="hr-light" >
+                            <p>Корзина Пуста</p>
+                        </div>
+                    </div>
+            </div>
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -63,5 +76,22 @@
 @yield('succes_message')
 
 </body>
+<script type="text/javascript" >
+var OrderListObj=document.getElementById('orderList');
+var Modal=document.getElementById('myModal');
+OrderListObj.onclick=function () {
+    Modal.style.display='block';
+}
+window.onclick = function(event) {
+    if (event.target === Modal) {
+        Modal.style.display = "none";
+    }
+}
+
+
+
+
+
+</script>
 </html>
 

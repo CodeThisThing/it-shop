@@ -22,7 +22,7 @@
             </div>
             <!-- Text -->
 
-               <div id="{{$phone->id}}"  class="phone-info" style="display:none;transition-duration: 10s">
+               <div id="{{$phone->id}}"  class="phone-info" style="display:none;">
                    <hr class="hr-light">
                   <span ><strong>Єкран:</strong> {{$phone->Screen_info}}</span><br>
                   <span ><strong>Процесор:</strong> {{$phone->processor_info}}</span><br>
@@ -51,7 +51,7 @@
 <script class="text/javascript">
 
      function hover(elem_id){
-       var elem=document.getElementById(elem_id)
+       var elem=document.getElementById(elem_id);
       if(elem.style.display==='none'){
             elem.style.display='block';
        }else elem.style.display='none';

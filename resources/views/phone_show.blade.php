@@ -37,7 +37,7 @@
             <div class="main_info mt-5 d-inline-flex justify-content-between col-12">
                 <h5 style="font-size: 35px">{{$phone->Name}}</h5>
                 <div class="d-inline-flex">
-                    <i id="addprod" class="fas fa-cart-plus" onclick="addorder({{$phone->id}})" style="font-size: 27px; cursor: pointer" ></i>
+                    <i id="addproduct" class="fas fa-cart-plus" onclick="addorder({{$phone->id}})" style="font-size: 27px; cursor: pointer" ></i>
                     <h3 class="ml-3">Ціна: {{$phone->price}} UAH</h3>
                 </div>
             </div>
@@ -102,7 +102,12 @@
 
 
 
+
+
+
     function addorder(prod_id) {
+        var Add_Order=document.getElementById('addproduct');
+        Add_Order.style.color='#2d995b';
     $.ajax(
             {
                 url: document.location.href+'/AddOrder',
@@ -130,7 +135,6 @@
     )
 
     }
-
 
    //const requestURL =document.location.href+'/AddOrder';
    /*const requestURL ='AjaxScript.php';
