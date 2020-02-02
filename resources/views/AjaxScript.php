@@ -10,4 +10,4 @@ if(isset($_POST['product_id'])){
     echo 'ERROR';
 }
 foreach ($phones as $phone)
-DB::insert('Insert into orders (`order_product_name`, `order_product_id`, `order_product_cost`)VALUES(?,?,?) ',array($phone->get('Name'),$phone->get('id'),$phone->get('price')));
+DB::insert('Insert into order (`order_product_name`, `order_product_id`, `order_product_cost`)VALUES(?,?,?) ',array($phone->get('Name'),$phone->get('id'),$phone->get('price')));

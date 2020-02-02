@@ -48,9 +48,27 @@
             <div id="myModal" class="modal">
                     <div class="row justify-content-center">
                         <div class="modal-content col-6">
-                            <h3>Корзина</h3>
-                            <hr class="hr-light" >
-                            <p>Корзина Пуста</p>
+                            <div class="top_content d-inline-flex justify-content-between">
+                            <h1>Корзина</h1>
+                            <i id="order_list_close" class="fas fa-times-circle mt-2" style="font-size:30px"></i>
+                            </div>
+                            <hr class="hr-dark">
+                            @foreach((new App\Order)->GetOrder() as $order_list_obj)
+                                <ul class="shadow-lg text-decoration-none d-block">
+                                    <li class="d-inline-flex">
+                                      <h3>Продукт:</h3>
+                                        <h3 class="ml-3">{{$order_list_obj->order_product_name}}</h3>
+                                    </li>
+                                    <li class="d-inline-flex">
+                                        <h3 class="ml-3">Ціна:</h3>
+                                        <h3>{{$order_list_obj->order_product_cost}}</h3>
+                                    </li>
+                                    <li class="d-inline-flex">
+                                        <h3 class="ml-3">Кількість:</h3>
+                                       <h3>{{$order_list_obj->order_product_quantity}}</h3>
+                                    </li>
+                                </ul>
+                            @endforeach
                         </div>
                     </div>
             </div>
@@ -79,6 +97,7 @@
 <script type="text/javascript" >
 var OrderListObj=document.getElementById('orderList');
 var Modal=document.getElementById('myModal');
+var OrderCloseBtn=document.getElementById('order_list_close');
 OrderListObj.onclick=function () {
     Modal.style.display='block';
 }
@@ -86,6 +105,9 @@ window.onclick = function(event) {
     if (event.target === Modal) {
         Modal.style.display = "none";
     }
+}
+OrderCloseBtn.onclick=function () {
+    Modal.style.display="none";
 }
 
 
