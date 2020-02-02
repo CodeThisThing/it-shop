@@ -13,14 +13,13 @@ nav{
 
 }
 .modal-content {
-    margin-top: 25%;
+    margin-top: 10%;
     animation-name: animate;
-
     animation-duration: 0.5s
 
 }
 @keyframes animate {
-    from {top:-320px; opacity:0}
+    from {top:-120px; opacity:0}
     to {top:0; opacity:1}
 }
 .phone-info{
