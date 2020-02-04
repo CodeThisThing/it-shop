@@ -16,6 +16,7 @@ use App\Http\Controllers\Samsung_phone;
 use App\Phone;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use phpDocumentor\Reflection\Location;
 
 Route::get('/', function () {
     $phones = Phone::all();
@@ -33,7 +34,7 @@ Route::get('/phones/{phone_category}','CategoryController@index');
 
 
 Route::post('/phones/{phone_category}/phone/{phone_id}/AddOrder','Product_controller@AddProdToOrder');
-
+Route::post('/delOrder','Product_controller@DeleteProductFromOrder');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('category','CategoryController');
