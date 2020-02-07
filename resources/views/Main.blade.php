@@ -60,4 +60,4 @@
 
 
 </script>
-@extends('layouts.Navbar')
+@extends('layouts.Master')

@@ -54,25 +54,30 @@
                             <i id="order_list_close" class="fas fa-times-circle mt-2" style="font-size:30px"></i>
                             </div>
                             <hr class="hr-dark">
+
+                           @auth
                             @foreach((new App\Order)->GetOrder() as $order_list_obj)
                                 <div class="shadow-lg  d-inline-flex mb-2 justify-content-between">
-                                     <ul class=" text-decoration-none mt-3 mb-2">
-                                        <li class="d-inline-flex">
-                                              <h3>Продукт:</h3>
-                                            <h3 class="ml-3">{{$order_list_obj->order_product_name}}</h3>
-                                        </li>
-                                        <li class="d-inline-flex">
-                                            <h3 class="ml-3">Ціна:</h3>
-                                            <h3>{{$order_list_obj->order_product_cost}}</h3>
-                                        </li>
-                                        <li class="d-inline-flex">
-                                            <h3 class="ml-3">Кількість:</h3>
-                                            <h3>{{$order_list_obj->order_product_quantity}}</h3>
-                                        </li>
-                                   </ul>
+                                    <div class="order-info">
+                                        <ul class=" text-decoration-none mt-3 mb-2">
+                                            <li class="d-inline-flex">
+                                                  <h3>Продукт:</h3>
+                                                <h3 class="ml-3">{{$order_list_obj->order_product_name}}</h3>
+                                            </li>
+                                            <li class="d-inline-flex">
+                                                <h3 class="ml-3">Ціна:</h3>
+                                                <h3>{{$order_list_obj->order_product_cost}}</h3>
+                                            </li>
+                                                <li class="d-inline-flex">
+                                                <h3 class="ml-3">Кількість:</h3>
+                                                <h3>{{$order_list_obj->order_product_quantity}}</h3>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <i id="order_list_delete" class="fas fa-times mt-3 mr-3" onclick="delorder({{$order_list_obj->order_id}})" style="font-size:25px"></i>
                                 </div>
                             @endforeach
+                                @endauth
                         </div>
                     </div>
             </div>
@@ -80,12 +85,12 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a class="nav-link" href="{{ url('/') }}">{{ Auth::user()->name }}</a>
+                        <a class="nav-link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
                     @else
-                        <a class="nav-link" href="{{ route('login') }}">Вхід</a>
+                        <button class="btn btn-info ml-5" onclick="location.href='{{route('login')}}'" >Вхід</button>
 
                         @if (Route::has('register'))
-                            <a class="nav-link" href="{{ route('register') }}">Регісрація</a>
+                         <button class="btn btn-success" onclick="location.href='{{ route('register') }}'">Регісрація</button>
                         @endif
                     @endauth
                 </div>
@@ -94,10 +99,10 @@
     </nav>
 </div>
 @yield('content')
+</body>
 @yield('About')
 @yield('succes_message')
-
-</body>
+@yield('home_message')
 <script type="text/javascript" >
 var OrderListObj=document.getElementById('orderList');
 var Modal=document.getElementById('myModal');

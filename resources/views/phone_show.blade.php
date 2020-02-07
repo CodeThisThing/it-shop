@@ -1,4 +1,4 @@
-@extends('layouts.Navbar')
+@extends('layouts.Master')
 @section('About')
 
     @foreach($phones as $phone)

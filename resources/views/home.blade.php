@@ -1,11 +1,11 @@
-@extends('layouts.Navigation')
+@extends('layouts.Admin_panel')
 
 @section('home_message')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            <div class="card shadow-lg">
+                <div class="card-header">Добрий день!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Ви увійшли як Адмін!
                 </div>
             </div>
         </div>
