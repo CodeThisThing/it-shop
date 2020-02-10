@@ -19,10 +19,10 @@
 
 </head>
 
-<body style="background:#5c6170; ">
+<body style="background:#778899; ">
 <div class="row wow fadeIn ">
 
-    <nav class="navbar navbar-expand-lg  navbar-dark default-color col-12"  style=" background-color: #4e555b;">
+    <nav class="navbar navbar-expand-lg  navbar-dark default-color col-12"  style=" background-color: #000714;">
         <a class="navbar-brand ml-5" href="/"><strong>IT-shop</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +34,13 @@
                     <a class="nav-link" href="/phones/1">Apple</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Samsung</a>
+                    <a class="nav-link" href="/phones/4">Samsung</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="/phones/2">OnePlus</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Xiaomi</a>
+                    <a class="nav-link" href="/phones/3">Xiaomi</a>
                 </li>
             </ul>
 

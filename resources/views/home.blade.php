@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-lg">
-                <div class="card-header">Добрий день!</div>
+                <div class="card-header">Добрий день <strong>{{Auth::user()->name}}</strong> !</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,9 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Ви увійшли як Адмін!
-                </div>
+                        <div class="card-info">
+                            <p>Ви увійшли як ?</p>
+                            <button class="btn btn-danger" onclick="location.href='/logout'">Вихід</button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

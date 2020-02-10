@@ -21,7 +21,7 @@
 <body style="background:white; ">
 <div class="row wow fadeIn ">
 
-    <nav class="navbar navbar-expand-lg  navbar-dark default-color col-12"  style=" background-color: #4e555b;">
+    <nav class="navbar navbar-expand-lg  navbar-dark default-color col-12"  style=" background-color: #000714;">
         <a class="navbar-brand ml-5" href="/"><strong>Вернуться на сайт</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,16 +30,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="/">Категорії</a>
+                    <a class="nav-link" href="/home/category_list">Категорії</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Замовлення</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="/phones/2">Продукти</a>
+                    <a class="nav-link"  href="/home/product_list">Продукти</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Користувачі</a>
+                    <a class="nav-link" href="/home/user_list">Користувачі</a>
                 </li>
             </ul>
 
@@ -61,6 +61,11 @@
     </nav>
 </div>
 @yield('home_message')
+@yield('category_list')
+@yield('product_list')
+@yield('product_list_del')
+@yield('user_list')
+
 </body>
 
 </html>
