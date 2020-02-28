@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Phone;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -73,7 +74,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category_id=$request->input('id');
+        $category_name=$request->input('name');
+        if(isset($request)){
+            DB::update('UPDATE `categories` SET `category`=?WHERE ?',array($category_name,$category_id));
+        }
     }
 
     /**
@@ -86,4 +91,13 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function Category_add(Request $request){
+        $category_name=$request->input('name');
+        if (isset($request)){
+            DB::insert("INSERT INTO `categories`(`category`) VALUES (?)",array($category_name));
+
+        }
+    }
+
 }

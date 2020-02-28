@@ -30,18 +30,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                @foreach( App\Category::all() as $category)
                 <li class="nav-item ">
-                    <a class="nav-link" href="/phones/1">Apple</a>
+                    <a class="nav-link" href="/phones/{{$category->id}}">{{$category->category}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/phones/4">Samsung</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  href="/phones/2">OnePlus</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/phones/3">Xiaomi</a>
-                </li>
+
+                    @endforeach
             </ul>
 
             <i id="orderList" class="fas fa-shopping-cart " style="color: white;font-size: 23px" ></i>
@@ -59,8 +53,8 @@
                             @foreach((new App\Order)->GetOrder() as $order_list_obj)
                                 <div class="shadow-lg  d-inline-flex mb-2 justify-content-between">
                                     <div class="order-info">
-                                        <ul class=" text-decoration-none mt-3 mb-2">
-                                            <li class="d-inline-flex">
+                                        <ul id="{{$order_list_obj->order_id}}" class="ul-content text-decoration-none mt-3 mb-2">
+                                            <li  class="d-inline-flex">
                                                   <h3>Продукт:</h3>
                                                 <h3 class="ml-3">{{$order_list_obj->order_product_name}}</h3>
                                             </li>
@@ -78,7 +72,12 @@
                                 </div>
                             @endforeach
                                 @endauth
+
+                            <div class="container mb-3 mt-2 justify-content-end">
+                                <button class="btn btn-success" onclick="confirmOrders()">Оформити Заказ</button>
+                            </div>
                         </div>
+
                     </div>
             </div>
 
@@ -151,7 +150,44 @@ function delorder(order_id) {
     )
 
 }
+function confirmOrders(){
 
+    let orders=document.getElementsByClassName('ul-content');
+    var order_list=[];
+    for(let order of orders){
+    order_list.push(order.id);
+    }
+    $.ajax(
+        {
+            url:'/order_confirm',
+            type: 'POST',
+            dataType:"text",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {order_list:order_list},
+            complete: function() {},
+            statusCode: {
+                200: function(message) {
+                    alert(message);
+
+                    },
+                403: function(jqXHR) {
+                    var error = JSON.parse(jqXHR.responseText);
+                    $("body").prepend(error.message);
+                }
+
+            },
+            error:function(xhr, status, errorThrown) {
+                alert(errorThrown+'\n'+status+'\n'+xhr.statusText);
+            }
+        }
+    );
+
+
+
+
+}
 
 
 

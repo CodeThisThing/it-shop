@@ -27,10 +27,9 @@
 
         <select class="browser-default custom-select mb-4" name="category" id="select">
             <option value="" disabled="" selected="">Виберіть категорію</option>
-            <option value="1">Iphone</option>
-            <option value="2">Oneplus</option>
-            <option value="3">Xiaomi</option>
-            <option value="4">Samsung</option>
+            @foreach(App\Category::all() as $category)
+            <option value="{{$category->id}}">{{$category->category}}</option>
+                @endforeach
         </select>
         <input type="hidden" id="_token" value="{{ csrf_token() }}">
 

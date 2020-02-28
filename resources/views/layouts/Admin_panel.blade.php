@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/admin_category.css') }}" type="text/css">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -33,7 +34,7 @@
                     <a class="nav-link" href="/home/category_list">Категорії</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Замовлення</a>
+                    <a class="nav-link" href="/home/order_list">Замовлення</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="/home/product_list">Продукти</a>
@@ -65,6 +66,7 @@
 @yield('product_list')
 @yield('product_list_del')
 @yield('user_list')
+@yield('order_list_section')
 
 </body>
 

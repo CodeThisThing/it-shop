@@ -39,7 +39,7 @@ Route::get('/home/user_list',function (){
     $users=User::all();
     return view('users_list',compact('users'));
 });
-
+Route::get('/home/order_list','OrderListController@index');
 Route::get('/home/product_list_add',function (){
    return view('product_list_add');
 });
@@ -52,13 +52,14 @@ Auth::routes();
 Route::get('/phones/{phone_category}/phone/{phone_id}','Product_controller@index');
 
 Route::get('/phones/{phone_category}','CategoryController@index');
-
+Route::post('/order_confirm','OrdersController@Order_Confirm');
 
 Route::post('/phones/{phone_category}/phone/{phone_id}/AddOrder','Product_controller@AddProdToOrder');
 
 Route::post('/delOrder','Product_controller@DeleteProductFromOrder');
 Route::post('/product_list_add','PhoneController@DeleteProduct');
-Route::post('/category_list_add','Category@Category_add');
+Route::post('/category_list_add','CategoryController@Category_add');
+Route::post('/category_list_update','CategoryController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('category','CategoryController');

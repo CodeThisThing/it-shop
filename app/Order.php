@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,4 +23,16 @@ class Order extends Model
         }
 
     }
+
+    public function Get_orders_by_id($order_id){
+        $array=(array)$order_id;
+        $confirmed_order_element=null;
+        foreach ($array as $key=>&$field) {
+            $buffer = DB::select('SELECT `order_id`, `order_product_name`, `order_product_id`, `order_product_cost`, `order_product_quantity`, `order_user_id` FROM `order` WHERE order_id=?', array($field));
+            $confirmed_order_element=(array)$buffer;
+        }
+        return $confirmed_order_element;
+    }
+
+
 }
