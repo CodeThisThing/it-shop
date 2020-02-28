@@ -84,7 +84,13 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
+                        @if(Auth::user()->is_admin==1)
                         <a class="nav-link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        @endif
+                        @if(Auth::user()->is_admin==0)
+                                <a class="nav-link" href="{{ url('/user_home') }}">{{ Auth::user()->name }}</a>
+                            @endif
+
                     @else
                         <button class="btn btn-info ml-5" onclick="location.href='{{route('login')}}'" >Вхід</button>
 

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use phpDocumentor\Reflection\Location;
+use function foo\func;
 
 Route::get('/', function () {
     $phones = Phone::all();
@@ -62,5 +63,11 @@ Route::post('/category_list_add','CategoryController@Category_add');
 Route::post('/category_list_update','CategoryController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user_home',function (){
+    return view('user_home');
+});
+Route::get('/user_home/user_profile',function (){
+    return view('user_profile');
+});
 Route::resource('category','CategoryController');
 Route::post('/phones/{phone_id}/succes_send','Comment_send@index');

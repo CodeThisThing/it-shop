@@ -14,7 +14,7 @@
                         </div>
                     @endif
                         <div class="card-info">
-                            <p>Ви увійшли як ?</p>
+                            <p>Ви увійшли як Адмін</p>
                             <button class="btn btn-danger" onclick="location.href='/logout'">Вихід</button>
                         </div>
                     </div>

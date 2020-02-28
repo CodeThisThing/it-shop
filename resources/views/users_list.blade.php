@@ -12,7 +12,7 @@
                     <th scope="col">Імя</th>
                     <th scope="col">email</th>
                     <th scope="col">Дата реєстрації</th>
-
+                    <th scope="col">Права</th>
 
 
                 </tr>
@@ -24,6 +24,12 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->created_at}}</td>
+                        <td>
+                            @if($user->is_admin==1)
+                                <p>Адмін</p>
+                           @else <p>Користувач</p>
+                                @endif
+                        </td>
 
                     </tr>
                 @endforeach
