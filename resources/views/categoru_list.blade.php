@@ -34,7 +34,7 @@
             <td class="col">{{$category->category}}</td>
             <td class="col">
                 <button id="{{$category->id}}" class="btn btn-warning btn-sm" onclick="form_open(this.id,'{{$category->category}}')">Редагувати</button>
-                <button id="{{$category->id}}" class="btn btn-danger btn-sm " onclick="form_open(this.id,'{{$category->category}}')" >Видалити</button>
+                <button id="{{$category->id}}" class="btn btn-danger btn-sm " onclick="category_delete(this.id)">Видалити</button>
             </td>
         </tr>
        @endforeach
@@ -46,7 +46,7 @@
             @csrf
             <p class="h4 mb-4 text-center">Додавання продукту</p>
 
-            <input type="text" name="name" id="cat_input" class="form-control mb-4" placeholder="Назва_Категорії">
+            <input type="text" name="category_name" id="cat_input" class="form-control mb-4" placeholder="Назва_Категорії">
 
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
 
@@ -75,16 +75,16 @@
                 update_div.style.display = "none";
             }
         };
-        OrderCloseBtn.onclick=function () {
+        /*OrderCloseBtn.onclick=function (event){
             Modal.style.display="none";
-        };
+        };*/
 
         //AJAX_REQUESTS
 
         $('.btn-info').click(function (e) {
-            e.preventDefault();
+                e.preventDefault();
             var formData = {
-                'name': $('input[name=name]').val()
+                'category': $('input[name=category_name]').val()
             };
             $.ajax({
                 url: "/category_list_add",
@@ -150,9 +150,37 @@
                 error: function (xhr, status, errorThrown) {
                     alert(errorThrown + '\n' + status + '\n' + xhr.statusText);
                 }
-            })
+            });
+        });
 
+       function category_delete(category_id) {
+           $.ajax({
+               url: "/category_list_delete",
+               dataType: "text",
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+               type: "POST",
+               data:  {'id' : category_id},
+               complete: function () {
+               },
+               statusCode: {
+                   200: function (message) {
+                       alert(message);
+                       var status = document.getElementsByClassName('status');
+                       status.innerHTML = '<p>Success</p>';
+                   },
+                   403: function (jqXHR) {
+                       var error = JSON.parse(jqXHR.responseText);
+                       $("body").prepend(error.message);
+                   }
 
+               },
+               error: function (xhr, status, errorThrown) {
+                   alert(errorThrown + '\n' + status + '\n' + xhr.statusText);
+               }
+           });
+       }
     </script>
 
 

@@ -77,10 +77,26 @@ class CategoryController extends Controller
         $category_id=$request->input('id');
         $category_name=$request->input('name');
         if(isset($request)){
-            DB::update('UPDATE `categories` SET `category`=?WHERE ?',array($category_name,$category_id));
+            DB::update('UPDATE `categories` SET `category`=? WHERE id=?',array($category_name,$category_id));
         }
     }
 
+    public function delete(Request $request) {
+        $category_id=$request->get('id');
+        if(isset($request)){
+            DB::delete('DELETE FROM `categories` WHERE id=?',array($category_id));
+        }
+
+
+    }
+
+    public function Category_add(Request $request){
+        $category_name=$request->input('category');
+        if (isset($request)){
+            DB::insert('INSERT INTO `categories`(`category`) VALUES (?)',array($category_name));
+
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -92,12 +108,6 @@ class CategoryController extends Controller
         //
     }
 
-    public function Category_add(Request $request){
-        $category_name=$request->input('name');
-        if (isset($request)){
-            DB::insert("INSERT INTO `categories`(`category`) VALUES (?)",array($category_name));
 
-        }
-    }
 
 }

@@ -15,8 +15,8 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="">
-    <title>Document</title>
-
+    <title>ITShop</title>
+    <link rel="icon" href="/public/favicon.png" type="image/png">
 </head>
 
 <body style="background:#778899; ">

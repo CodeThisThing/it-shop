@@ -13,13 +13,19 @@
                 {{Auth::user()->name}}
             </h2>
                 <p>
+                    email:
                     {{Auth::user()->email}}
                 </p>
 
             </div>
             <div class="profile profile_main_info shadow-lg">
-                <p>Я розюлбник всякої всячини здоров треба шось пиши там незнаю.</p>
+                <h3>Про мене</h3>
+                <p>Я розюлбник всякої всячини здоров треба шось пиши там незнаю. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores magnam ratione rem rerum veniam. Consectetur cumque dignissimos earum error, explicabo facilis labore laudantium minus nam nemo non reiciendis suscipit voluptatibus!</p>
             </div>
+        </div>
+        <div class="profile_orders shadow-lg">
+            <h3>Мої замовлення</h3>
+
         </div>
     </div>
 

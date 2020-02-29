@@ -61,7 +61,7 @@ Route::post('/delOrder','Product_controller@DeleteProductFromOrder');
 Route::post('/product_list_add','PhoneController@DeleteProduct');
 Route::post('/category_list_add','CategoryController@Category_add');
 Route::post('/category_list_update','CategoryController@update');
-
+Route::post('/category_list_delete','CategoryController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user_home',function (){
     return view('user_home');
@@ -69,5 +69,6 @@ Route::get('/user_home',function (){
 Route::get('/user_home/user_profile',function (){
     return view('user_profile');
 });
+
 Route::resource('category','CategoryController');
 Route::post('/phones/{phone_id}/succes_send','Comment_send@index');
