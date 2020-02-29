@@ -1,5 +1,5 @@
 
-    <!doctype html>
+<!doctype html>
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="">
     <title>ITShop</title>
-    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://itshop/favicon.ico" type="image/x-icon">
 </head>
 
 <body style="background:#778899; ">
