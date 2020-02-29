@@ -15,6 +15,7 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="">
+    <link rel="icon" href="/public/favicon.ico" type="image/ico">
     <title>Document</title>
 
 </head>

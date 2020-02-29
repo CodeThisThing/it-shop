@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="">
     <title>ITShop</title>
-    <link rel="icon" href="/public/favicon.png" type="image/png">
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
 </head>
 
 <body style="background:#778899; ">
