@@ -179,7 +179,7 @@ function confirmOrders(){
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            data: {order_list:order_list},
+            data: {order_list},
             complete: function() {
 
             },
