@@ -52,11 +52,11 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 
 Route::post('/delOrder','Product_controller@DeleteProductFromOrder');
-Route::post('/product_list_add','PhoneController@DeleteProduct');
+Route::post('/product_list_add','PhoneController@AddProduct');
 Route::post('/category_list_add','CategoryController@Category_add');
 Route::post('/category_list_update','CategoryController@update');
 Route::post('/category_list_delete','CategoryController@delete');
-
+Route::post('/product_list_delete','PhoneController@delete_product');
 //Route::get('/phones/{phone_id}','Product_controller@index');
 
 

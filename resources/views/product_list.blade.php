@@ -6,7 +6,7 @@
            <button class="btn btn-primary"  onclick="location.href='/home/product_list_add'">Додати продукт</button>
        </div>
        <div class="container">
-    <table class="table table-striped shadow-lg mt-4">
+    <table id="table_phone" class="table table-striped shadow-lg mt-4">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -26,7 +26,7 @@
         </thead>
         <tbody>
         @foreach($phone_list as $phone)
-        <tr>
+        <tr id="{{$phone->id}}">
             <th scope="row">{{$phone->id}}</th>
             <td>{{$phone->Name}}</td>
             <td>{{$phone->price}}</td>
@@ -37,6 +37,9 @@
             <td>{{$phone->memory_info}}</td>
             <td>{{$phone->material_info}}</td>
             <td>{{$phone->id_category}}</td>
+            <td>
+                <button id="{{$phone->id}}" class="btn btn-danger" onclick="product_delete(this.id,this)">Видалити</button>
+            </td>
         </tr>
        @endforeach
         </tbody>
@@ -44,4 +47,39 @@
        </div>
 
    </div>
+
+
+   <script>
+       function product_delete(product_id,delete_btn) {
+           $.ajax({
+               url: "/product_list_delete",
+               dataType: "text",
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+               type: "POST",
+               data:  {'id' : product_id},
+               complete: function () {
+               },
+               statusCode: {
+                   200: function (message) {
+                       alert(message);
+                       var status = document.getElementsByClassName('status');
+                       status.innerHTML = '<p>Success</p>';
+                   },
+                   403: function (jqXHR) {
+                       var error = JSON.parse(jqXHR.responseText);
+                       $("body").prepend(error.message);
+                   }
+
+               },
+               error: function (xhr, status, errorThrown) {
+                   alert(errorThrown + '\n' + status + '\n' + xhr.statusText);
+               }
+           });
+           delete_btn.closest('tr').remove();
+
+       }
+
+   </script>
 @endsection

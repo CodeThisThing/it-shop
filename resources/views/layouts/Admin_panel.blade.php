@@ -15,7 +15,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <link rel="stylesheet" href="">
+
 
     <title>ITshop</title>
 

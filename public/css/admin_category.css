@@ -16,3 +16,6 @@
     from {top:-120px; opacity:0}
     to {top:0; opacity:1}
 }
+tbody tr td .btn-sm{
+    margin-top: 10px;
+}

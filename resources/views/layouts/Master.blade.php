@@ -42,16 +42,16 @@
 
             <div id="myModal" class="modal">
                     <div class="row justify-content-center">
-                        <div class="modal-content col-6">
+                        <div id="Node_div_order" class="modal-content col-6">
                             <div class="top_content d-inline-flex justify-content-between">
-                            <h1>Корзина</h1>
-                            <i id="order_list_close" class="fas fa-times-circle mt-2" style="font-size:30px"></i>
+                                <h1>Корзина</h1>
+                                <i id="order_list_close" class="fas fa-times-circle mt-2" style="font-size:30px"></i>
                             </div>
                             <hr class="hr-dark">
 
                            @auth
                             @foreach((new App\Order)->GetOrder() as $order_list_obj)
-                                <div class="shadow-lg  d-inline-flex mb-2 justify-content-between">
+                                <div id="{{$order_list_obj->order_id}}" class="shadow-lg  d-inline-flex mb-2 justify-content-between">
                                     <div class="order-info">
                                         <ul id="{{$order_list_obj->order_id}}" class="ul-content text-decoration-none mt-3 mb-2">
                                             <li  class="d-inline-flex">
@@ -114,15 +114,15 @@ var Modal=document.getElementById('myModal');
 var OrderCloseBtn=document.getElementById('order_list_close');
 OrderListObj.onclick=function () {
     Modal.style.display='block';
-}
+};
 window.onclick = function(event) {
     if (event.target === Modal) {
         Modal.style.display = "none";
     }
-}
+};
 OrderCloseBtn.onclick=function () {
     Modal.style.display="none";
-}
+};
 
 
 function delorder(order_id) {
@@ -160,9 +160,17 @@ function confirmOrders(){
 
     let orders=document.getElementsByClassName('ul-content');
     var order_list=[];
+    var Node_div=document.getElementById('Node_div_order');
     for(let order of orders){
-    order_list.push(order.id);
+        order_list.push(order.id);
+
     }
+    for(let child_div_id of order_list){
+        Node_div.removeChild(document.getElementById(child_div_id));
+
+    }
+
+
     $.ajax(
         {
             url:'/order_confirm',
@@ -172,7 +180,9 @@ function confirmOrders(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {order_list:order_list},
-            complete: function() {},
+            complete: function() {
+
+            },
             statusCode: {
                 200: function(message) {
                     alert(message);

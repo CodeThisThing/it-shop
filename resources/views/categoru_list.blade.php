@@ -34,7 +34,7 @@
             <td class="col">{{$category->category}}</td>
             <td class="col">
                 <button id="{{$category->id}}" class="btn btn-warning btn-sm" onclick="form_open(this.id,'{{$category->category}}')">Редагувати</button>
-                <button id="{{$category->id}}" class="btn btn-danger btn-sm " onclick="category_delete(this.id)">Видалити</button>
+                <button id="{{$category->id}}" class="btn btn-danger btn-sm " onclick="category_delete(this.id,this)">Видалити</button>
             </td>
         </tr>
        @endforeach
@@ -153,7 +153,7 @@
             });
         });
 
-       function category_delete(category_id) {
+       function category_delete(category_id,delete_btn) {
            $.ajax({
                url: "/category_list_delete",
                dataType: "text",
@@ -180,6 +180,7 @@
                    alert(errorThrown + '\n' + status + '\n' + xhr.statusText);
                }
            });
+           delete_btn.closest('tr').remove();
        }
     </script>
 
