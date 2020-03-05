@@ -1,0 +1,29 @@
+body{
+    background-color: #5c6170;
+}
+nav{
+    background-color: #4e555b;
+}
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    background-color: rgb(0,0,0); /* Затемнение фона */
+    background-color: rgba(0,0,0,0.5); /* Полупрозрачное затемнение */
+    z-index: 1; /* Фон на нижнем слое */
+    overflow: auto; /* При необходимости, то появиться прокрутка */
+
+}
+.modal-content {
+    margin-top: 10%;
+    animation-name: animate;
+    animation-duration: 0.5s
+
+}
+@keyframes animate {
+    from {top:-120px; opacity:0}
+    to {top:0; opacity:1}
+}
+.phone-info{
+    animation-name: animate;
+    animation-duration: 0.7s
+
+}
