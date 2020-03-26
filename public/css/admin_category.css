@@ -1,0 +1,21 @@
+.Update_category {
+    display: none; /* Скрыто по умолчанию */
+    background-color: rgb(0,0,0); /* Затемнение фона */
+    background-color: rgba(0,0,0,0.5); /* Полупрозрачное затемнение */
+    z-index: 1; /* Фон на нижнем слое */
+    overflow: auto; /* При необходимости, то появиться прокрутка */
+
+}
+.modal_content{
+    margin-top: 20%;
+    animation-name: animate;
+    animation-duration: 0.5s
+
+}
+@keyframes animate {
+    from {top:-120px; opacity:0}
+    to {top:0; opacity:1}
+}
+tbody tr td .btn-sm{
+    margin-top: 10px;
+}
